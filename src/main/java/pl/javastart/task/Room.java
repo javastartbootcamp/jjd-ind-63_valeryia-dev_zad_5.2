@@ -1,8 +1,8 @@
 package pl.javastart.task;
 
 public class Room {
-   private double size;
-   private double temperature;
+    private double size;
+    private double temperature;
     private boolean haveAirConditioner;
 
     public Room(double size, double temperature, boolean isAirConditioner) {
@@ -15,31 +15,27 @@ public class Room {
         return temperature;
     }
 
-    public boolean isAirConditioner() {
-        return haveAirConditioner;
-    }
-
-
-   public boolean lowerTemperature(){
-        if (haveAirConditioner==true && ((temperature)>  minTemperature()+1)) {
+    public boolean lowerTemperature() {
+        if (haveAirConditioner && ((temperature) > minTemperature() + 1)) {
             temperature--;
             return true;
-        } else if(haveAirConditioner==true && temperature > minTemperature() && (minTemperature() + 1) > temperature){
-        temperature= temperature - (temperature- minTemperature());
-         return  true;
-        } else
-               return  false;
+        } else if (haveAirConditioner && temperature > minTemperature() && (minTemperature() + 1) > temperature) {
+            temperature = temperature - (temperature - minTemperature());
+            return  true;
+        } else {
+            return  false;
         }
-           private double minTemperature(){
+    }
+
+    private double minTemperature() {
         double minTemperature;
-        if (size <=50) {
-         return  minTemperature = 21;
-        }else if (size>50&& size<=100) {
-        return minTemperature= 23;
-
-        } else
-              return minTemperature=25;
+        if (size <= 50) {
+            return minTemperature = 21;
+        } else if (size > 50 && size <= 100) {
+            return minTemperature = 23;
+        } else {
+            return minTemperature = 25;
         }
-
+    }
 }
 
